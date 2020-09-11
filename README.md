@@ -12,5 +12,4 @@ const string studentData[] =
  "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
  "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
  "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
- "A5,Bethany,Carpio,bcarpio@my.wgu.edu,29,
- 20,50,42,SOFTWARE"
+ "A5,Jane,Smith,JSmith@school.edu,29,0,50,42,SOFTWARE"}
