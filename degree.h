@@ -1,3 +1,8 @@
 #pragma once
+#include <string>
 
-enum class Degree{SECURITY, NETWORKING, SOFTWARE};
+//enumerated class for the allowed degree program
+enum Degree {NETWORKING, SECURITY, SOFTWARE};
+
+//Strings for printing degree types
+static const std::string degreeStrings[] = { "NETWORKING", "SECURITY", "SOFTWARE" };

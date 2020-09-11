@@ -1,95 +1,120 @@
 #include "student.h"
-#include "degree.h"
-
+#include <iostream>
+#include <iomanip>
 
 //Default Constructor
-student::student() {
-	studentID = "none";
-	firstName = "none";
-	lastName = "none";
-	email = "none";
-	age = 0;
-	courseNumberDays[0] = 0;
-	courseNumberDays[1] = 0;
-	courseNumberDays[2] = 0;
-	degreeType = Degree::SOFTWARE;
-
+Student::Student() {
+	this->studentID = "";
+	this->firstName = "";
+	this->lastName = "";
+	this->email = "";
+	this->age = 0;
+	for (int i = 0; i < courseArraySize; i++) {
+		this->courseNumberDays[i] = 0;
+	}
 }
 
 //Secondary Constructor
-student::student(std::string ID, std::string studentFirstName, std::string studentLastName, std::string studentEmail, int yearsOld, int courseDays[3], Degree programEnrolled) {
-	studentID = ID;
-	firstName = studentFirstName;
-	lastName = studentLastName;
-	email = studentEmail;
-	age = yearsOld;
-	courseNumberDays[0] = courseDays[0];
-	courseNumberDays[1] = courseDays[1];
-	courseNumberDays[2] = courseDays[2];
-	degreeType = programEnrolled;
+Student::Student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int courseDays[]) {
+	this->studentID = ID;
+	this->firstName = firstName;
+	this->lastName = lastName;
+	this->email = email;
+	this->age = age;
+	for (int i = 0; i < courseArraySize; i++) {
+		this->courseNumberDays[i] = courseDays[i];
+	}
 }
 
-std::string student::GetStudentID() {
+// Destructor
+Student::~Student() {
+	//Empty because there is nothing that Student declares that would need to be deleted	
+}
+
+//Returns Student ID
+std::string Student::GetStudentID() {
 	return studentID;
 }
 
-std::string student::GetFirstName() {
+//Returns Student's First Name
+std::string Student::GetFirstName() {
 	return firstName;
 }
 
-std::string student::GetLastName() {
+//Returns Student's Last Name
+std::string Student::GetLastName() {
 	return lastName;
 }
 
-std::string student::GetEmail() {
+//Returns Student's Email Address
+std::string Student::GetEmail() {
 	return email;
 }
 
-int student::GetAge() {
+//Returns Student's Age
+int Student::GetAge() {
 	return age;
 }
 
-int* student::GetCourseNumberDays() {
+//Returns Course Number Day for indicated index
+int* Student::GetCourseNumberDays() {
 	return courseNumberDays;
 }
-Degree student::GetDegreeType() {
-	return degreeType;
-}
 
-void student::SetStudentID(std::string ID) {
-	studentID = ID;
-	return;
-}
-void student::SetFirstName(std::string studentFirstName) {
-	firstName = studentFirstName;
-	return;
-}
-void student::SetLastName(std::string studentLastName) {
-	lastName = studentLastName;
-	return;
-}
-void student::SetEmail(std::string studentEmail) {
-	email = studentEmail;
-	return;
-}
-void student::SetAge(int yearsOld) {
-	age = yearsOld;
-	return;
-}
-void student::SetCourseNumberDays(int courseDays[3]) {
-	courseNumberDays[0] = courseDays[0];
-	courseNumberDays[1] = courseDays[1];
-	courseNumberDays[2] = courseDays[2];
-	return;
-}
-void student::SetDegreeType(Degree programEnrolled) {
-	degreeType = programEnrolled;
-	return;
-}
-
-//FIXME: Make this into the format from the directions
-
-void student::printStudentData() {
+//Sets Student ID
+void Student::SetStudentID(std::string ID) {
+	this->studentID = ID;
 	
+	return;
+}
+
+//Sets Student First Name
+void Student::SetFirstName(std::string firstName) {
+	this->firstName = firstName;
+	
+	return;
+}
+
+//Sets Student Last Name
+void Student::SetLastName(std::string lastName) {
+	this->lastName = lastName;
+	
+	return;
+}
+
+//Sets Student Email
+void Student::SetEmail(std::string email) {
+	this->email = email;
+	
+	return;
+}
+
+//Sets Student Age
+void Student::SetAge(int age) {
+	this->age = age;
+	
+	return;
+}
+
+//Sets Course Array Days
+void Student::SetCourseNumberDays(int courseNumberDays[]) {
+	for (int i = 0; i < courseArraySize; i++) {
+		this->courseNumberDays[i] = courseNumberDays[i];
+	}
+	
+	return;
+}
+
+//Prints all of Single Student's data
+void Student::PrintStudentData() {
+	std::cout << "Student ID: " << GetStudentID();
+	std::cout << "\t First Name: " << GetFirstName();
+	std::cout << "\t Last Name: " << GetLastName();
+	std::cout << "\t Age: " << GetAge();
+	std::cout << "\t Days in Course: ";
+	for (int i = 0; i < courseArraySize; i++) {
+		std::cout << GetCourseNumberDays()[i] << " ";
+	}
+
 	return;
 }
