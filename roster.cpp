@@ -216,12 +216,6 @@ void main() {
 	std::string updatedStudentData;
 	std::string currentID;
 
-	// Prints Course Info, Name, etc. to the screen.
-	std::cout << "Course Title: C867 - Scripting and Programming - Applications" << std::endl;
-	std::cout << "Language Used: C++" << std::endl;
-	std::cout << "Student ID: 000469842" << std::endl;
-	std::cout << "Student Name: Bethany Carpio" << std::endl;
-
 	// Create an instance of Roster called classRoster
 	Roster* classRoster = new Roster;
 
